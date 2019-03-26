@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({"extended" : false}));
 
 router.get("/",function(req,res){
-    res.json({"error" : false,"message" : "Hello World"});
+    res.json({"error" : false,"message" : "Hello Rosquita"});
 });
 
 //route() will allow you to use same path for different HTTP operation.
@@ -17,18 +17,18 @@ router.get("/",function(req,res){
 
 router.route("/users")
 
-    // .get(function(req,res){
-    //     var response = {};
-    //     mongoop.find({},function(err,data){
-    //     // mongo command to fetch all data from collection.
-    //         if(err) {
-    //             response = {"error" : true,"message" : "error fetching data"};
-    //         } else {
-    //             response = {"error" : false,"message" : data};
-    //         }
-    //         res.json(response);
-    //     });
-    // })
+    .get(function(req,res){
+        var response = {};
+        mongoop.find({},function(err,data){
+        // mongo command to fetch all data from collection.
+            if(err) {
+                response = {"error" : true,"message" : "error fetching data"};
+            } else {
+                response = {"error" : false,"message" : data};
+            }
+            res.json(response);
+        });
+    })
 
     .post(function(req,res){
         var db = new mongoOp();
